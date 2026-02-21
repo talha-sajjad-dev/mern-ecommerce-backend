@@ -5,9 +5,9 @@ import ApiResponse from "../utils/response.util.js";
 class UserController{
     getMe = asyncHandler(async (req, res) => {
         const userId = req.user.id;
-        const user = await userService.getUser(userId);
+        const data = await userService.getUser(userId);
         
-        return ApiResponse.success(res, user, 'User Found Successfully', 200)
+        return ApiResponse.success(res, data, 'User Found Successfully', 200)
     })
 
     updatePersonalInfo = asyncHandler(async (req, res) => {

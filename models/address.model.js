@@ -8,6 +8,12 @@ const AddressSchema = mongoose.Schema({
         index: true,
     },
 
+    type: {
+      type: String,
+      enum: ['home', 'shop'],
+      default: 'home',
+    },
+
     country: {
       type: String,
       required: true,
@@ -30,6 +36,6 @@ const AddressSchema = mongoose.Schema({
     },
 
     postalCode: String,
-});
+}, { timestamps: true });
 
 export default mongoose.model('Address', AddressSchema);

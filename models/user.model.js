@@ -96,6 +96,11 @@ const UserSchema = new mongoose.Schema(
         setPassword: {
             type: Boolean,
             default: false,
+        },
+        
+        isSeller: {
+            type: Boolean,
+            default: false,
         }
     },
     {
@@ -123,6 +128,7 @@ UserSchema.set('toObject', { virtuals: true });
 
 // Hash password before saving
 UserSchema.pre('save', async function() {
+    this.isVerified = this.role === 'user' && true;
     this.setPassword = !!this.password;
 
     if (!this.isModified('password')) return;

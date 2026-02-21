@@ -4,7 +4,9 @@ import addressRepository from "../repositories/address.repository.js";
 import userRepository from "../repositories/user.repository.js";
 import { AppError } from "../utils/errors.util.js";
 import bcrypt from 'bcryptjs';
-import { upload, cloudinary } from '../config/cloudinary.js';
+import cloudinary from '../config/cloudinary.js';
+import sellerRepository from "../repositories/seller.repository.js";
+import { SellerResponseDto } from "../dtos/seller.dto.js";
 
 class UserService {
     async getUser(id) {
@@ -13,8 +15,11 @@ class UserService {
             throw new AppError('User Not Found!', 404);
         }
 
+        const seller = await sellerRepository.getByUserId(id);
+
         return {
             user: UserResponseDto.fromUser(user),
+            seller : seller ? SellerResponseDto.fromSeller(seller) : null,
         }
     }
 

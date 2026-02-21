@@ -1,7 +1,7 @@
 import express from 'express';
 import { authenticateToken } from '../middleware/auth.middleware.js';
 import UserController from '../controllers/user.controller.js';
-import { upload } from '../config/cloudinary.js';
+import { uploadSingleImage } from '../uploads/image.upload.js';
 
 const userRouter = express.Router();
 // Store files in memory or disk
@@ -13,6 +13,6 @@ userRouter.get('/me/address', authenticateToken, UserController.getAddress);
 userRouter.post('/me/address', authenticateToken, UserController.createAddress);
 userRouter.patch('/me/password', authenticateToken, UserController.changePassword);
 userRouter.post('/me/password', authenticateToken, UserController.createPassword);
-userRouter.patch('/me/avatar', authenticateToken, upload.single('avatar'), UserController.updateAvatar);
+userRouter.patch('/me/avatar', authenticateToken, uploadSingleImage.single('avatar'), UserController.updateAvatar);
 
 export default userRouter;

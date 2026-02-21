@@ -16,6 +16,7 @@ class UserResponseDto {
                 ? user.addresses.map(AddressResponseDto.fromAddress)
                 : [],
             setPassword: user.setPassword, 
+            isSeller : user.isSeller,
         }
     }
 }
