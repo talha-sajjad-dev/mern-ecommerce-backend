@@ -105,3 +105,36 @@ npm run dev
 ## Environment Variables
 
 See `.env.example` for the full list. Key variables:
+PORT=5000
+MONGO_URI=your_mongodb_uri
+JWT_SECRET=your_jwt_secret
+STRIPE_SECRET_KEY=your_stripe_key
+PAYPAL_CLIENT_ID=your_paypal_id
+CLOUDINARY_CLOUD_NAME=
+CLOUDINARY_API_KEY=
+CLOUDINARY_API_SECRET=
+GOOGLE_CLIENT_ID=your_google_oauth_id
+
+---
+
+## Folder Structure
+├── controllers/     # Request handlers (15 controllers)
+├── routes/          # Route definitions
+├── models/          # Mongoose schemas (20+ models)
+├── services/        # Business logic layer
+├── repositories/    # Database access layer
+├── middleware/      # Auth, validation, error handling
+├── validators/      # Joi validation schemas
+├── socket/          # Socket.IO real-time logic
+├── email/           # Email templates and service
+├── utils/           # Helper functions
+└── config/          # App configuration
+
+---
+
+## Author
+
+**Talha Sajjad** — MERN Stack Developer
+📧 talhasajjad148@gmail.com
+🔗 [Portfolio](https://talha-sajjad-portfolio.netlify.app)
+🔗 [LinkedIn](https://linkedin.com/in/talha-sajjad-dev)
